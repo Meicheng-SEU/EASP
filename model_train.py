@@ -87,6 +87,12 @@ def train_model(k, X_train, y_train, X_val, y_val, save_model_dir):
     xgb_model.get_booster().save_model(fname=save_model_path)
 
 def downsample(data_set, data_dir):
+    """
+    Using our feature extraction approach will result in over 1 million hours of data in the training process.
+    However, only roughly 1.8% of these data corresponds to a positive outcome.
+    Consequently, in order to deal with the serious class imbalance, a systematic way is provided by
+    down sampling the excessive data instances of the majority class in each cross validation.
+    """
     x, y = data_process(data_set, data_dir)
     index_0 = np.where(y == 0)[0]
     index_1 = np.where(y == 1)[0]
@@ -102,19 +108,19 @@ def downsample(data_set, data_dir):
     return x_del, y_del
 
 if __name__ == "__main__":
-    #data_path = "data/all_dataset/"
-    data_path = 'E:/Cinc2019/Version2/cinc2019/version2_7_17/training/'
-    train_nosepsis = np.load('train_nosepsis.npy')
-    train_sepsis = np.load('train_sepsis.npy')
+    data_path = "./data/all_dataset/"
+    train_nosepsis = np.load('./data/train_nosepsis.npy')
+    train_sepsis = np.load('./data/train_sepsis.npy')
 
+    # 5-fold cross validation was implemented and five XGBoost models were produced
     kfold = KFold(n_splits=5, shuffle=True, random_state=np.random.seed(12306))
     for (k, (train0_index, val0_index)), (k, (train1_index, val1_index)) in \
             zip(enumerate(kfold.split(train_nosepsis)), enumerate(kfold.split(train_sepsis))):
 
-        train_set = np.append(train_nosepsis[train0_index], train_sepsis[train1_index])  # 共32268例，患病2345 不患病29923
-        x_train, y_train = downsample(train_set, data_path)  # Counter({0: 1220436, 1: 22315})
+        train_set = np.append(train_nosepsis[train0_index], train_sepsis[train1_index])
+        x_train, y_train = downsample(train_set, data_path)
 
-        val_set = np.append(train_nosepsis[val0_index], train_sepsis[val1_index])  # 共8068例，患病587 不患病7481
-        x_val, y_val = downsample(val_set, data_path)  # Counter({0: 303858, 1: 5601})
+        val_set = np.append(train_nosepsis[val0_index], train_sepsis[val1_index])
+        x_val, y_val = downsample(val_set, data_path)
 
-        train_model(k, x_train, y_train, x_val, y_val, save_model_dir = 'xgboost_model/')
+        train_model(k, x_train, y_train, x_val, y_val, save_model_dir = './xgb_model/')
