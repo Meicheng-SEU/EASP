@@ -23,23 +23,20 @@ def find_sepsis_file(data_path_dir):
     return (id_nosepsis, id_sepsis)
 
 if __name__ == "__main__":
-    data_path_A = "data/training_setA/"
-    data_path_B = "data/training_setB/"
-    data_path = "data/all_dataset/"
+    data_path_A = "./data/training_setA/"
+    data_path_B = "./data/training_setB/"
+    data_path = "./data/all_dataset/"
     copy_files(data_path_A, data_path)
     copy_files(data_path_B, data_path)
 
+    # divide a total of 40,336 populations into septic/no-septic (2,932/37,404) patients
     id_nosepsis, id_sepsis = find_sepsis_file(data_path)
-
+    # development dateset (34,285 patients, 2,492 septic & 31,793 non-septic)
+    # validation dataset (6,051 patients, 440 septic & 5,611 non-septic)
     train_nosepsis, test_nosepsis = train_test_split(id_nosepsis, test_size=0.15, random_state=12306)
     train_sepsis, test_sepsis = train_test_split(id_sepsis, test_size=0.15, random_state=12306)
-
     test_set = np.append(test_nosepsis, test_sepsis)
 
-    np.save("train_nosepsis.npy", train_nosepsis)
-    np.save("train_sepsis.npy", train_sepsis)
-    np.save("test_set.npy", test_set)
-
-
-
-
+    np.save("./data/train_nosepsis.npy", train_nosepsis)
+    np.save("./data/train_sepsis.npy", train_sepsis)
+    np.save("./data/test_set.npy", test_set)
