@@ -9,6 +9,7 @@ We proposed an Explainable Artificial-intelligence Sepsis Predictor (EASP) to pr
 These instructions go through the training and evaluation of our model on the Physionet 2019 challenge public database (https://archive.physionet.org/users/shared/challenge-2019/).
 
 To download and build the datasets run:
+
   ./setup.sh
 
 ## Training
