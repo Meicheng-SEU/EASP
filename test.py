@@ -18,10 +18,11 @@ def save_challenge_testlabel(file, labels):
             f.write('%d\n' % l)
 
 def load_model_predict(X_test, k_fold, path):
+    "ensemble the five XGBoost models by averaging their output probabilities"
     test_pred = np.zeros((X_test.shape[0], k_fold))
     X_test = xgb.DMatrix(X_test)
     for k in range(k_fold):
-        model_path_name = path + '/model{}.mdl'.format(k+1)
+        model_path_name = path + 'model{}.mdl'.format(k+1)
         xgb_model = xgb.Booster(model_file = model_path_name)
         y_test_pred = xgb_model.predict(X_test)
         test_pred[:, k] = y_test_pred
@@ -30,8 +31,13 @@ def load_model_predict(X_test, k_fold, path):
 
     return result_pro
 
-def predict(data_set, data_dir, save_prediction_dir,
-            save_label_dir, model_path, risk_threshold):
+def predict(data_set,
+            data_dir,
+            save_prediction_dir,
+            save_label_dir,
+            model_path,
+            risk_threshold
+            ):
     for psv in data_set:
         patient = pd.read_csv(os.path.join(data_dir, psv), sep='|')
         features, labels = feature_extraction(patient)
@@ -46,13 +52,15 @@ def predict(data_set, data_dir, save_prediction_dir,
         save_challenge_testlabel(save_testlabel_name, labels)
 
 if __name__ == "__main__":
-    #data_path = "data/all_dataset/"
-    test_set = np.load('test_set.npy')
-    test_data_path_dir = 'E:/Cinc2019/Version2/cinc2019/version2_7_17/training/'
-    prediction_directory = 'prediction/'
-    label_directory = 'test_label/'
-    model_path = 'xgboost_model'
+    test_set = np.load('./data/test_set.npy')
+    test_data_path = "./data/all_dataset/"
+    prediction_directory = './prediction/'
+    label_directory = './label/'
+    model_path = './xgb_model/'
 
-    predict(test_set, test_data_path_dir, prediction_directory, label_directory, model_path, 0.525)
-    # score = auroc, auprc, accuracy, f_measure, normalized_observed_utility
-    evaluate_sepsis_score(label_directory, prediction_directory)
+    predict(test_set, test_data_path, prediction_directory, label_directory, model_path, 0.525)
+
+    auroc, auprc, accuracy, f_measure, utility = evaluate_sepsis_score(label_directory, prediction_directory)
+    output_string = 'AUROC|AUPRC|Accuracy|F-measure|Utility\n{}|{}|{}|{}|{}'.format(
+                     auroc, auprc, accuracy, f_measure, utility)
+    
