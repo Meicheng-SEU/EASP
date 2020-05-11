@@ -1,6 +1,5 @@
-import os
 import pandas as pd
-import numpy as np
+import numpy as np, os, sys
 import xgboost as xgb
 from evaluate_sepsis_score import evaluate_sepsis_score
 from feature_engineering import feature_extraction
@@ -42,7 +41,7 @@ def predict(data_set,
         patient = pd.read_csv(os.path.join(data_dir, psv), sep='|')
         features, labels = feature_extraction(patient)
 
-        predict_pro = load_model_predict(features, k_fold = 5, path = model_path)
+        predict_pro = load_model_predict(features, k_fold = 5, path = './' + model_path + '/')
         PredictedProbability = np.array(predict_pro)
         PredictedLabel = [0 if i <= risk_threshold else 1 for i in predict_pro]
 
@@ -52,15 +51,19 @@ def predict(data_set,
         save_challenge_testlabel(save_testlabel_name, labels)
 
 if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        raise Exception('Include the model directory as arguments, '
+                        'e.g., python test.py Submit_model')
+
     test_set = np.load('./data/test_set.npy')
     test_data_path = "./data/all_dataset/"
     prediction_directory = './prediction/'
     label_directory = './label/'
-    model_path = './xgb_model/'
+    model_path = sys.argv[1]
 
     predict(test_set, test_data_path, prediction_directory, label_directory, model_path, 0.525)
 
     auroc, auprc, accuracy, f_measure, utility = evaluate_sepsis_score(label_directory, prediction_directory)
     output_string = 'AUROC|AUPRC|Accuracy|F-measure|Utility\n{}|{}|{}|{}|{}'.format(
                      auroc, auprc, accuracy, f_measure, utility)
-    
+    print(output_string)
