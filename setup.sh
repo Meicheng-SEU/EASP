@@ -10,7 +10,7 @@ mkdir all_dataset
 curl -O $url/training_setA.zip
 unzip training_setA.zip
 curl -O $url/training_setB.zip
-unzip training_setA.zip
+unzip training_setB.zip
 
 cd ..
 
