@@ -11,21 +11,21 @@ These instructions go through the training and evaluation of our model on the Ph
 
 To download and build the datasets run:
 
-  ./setup.sh
+>>>>./setup.sh
 
 ## Training
 To train a model use the following command:
 
-  python model_train.py
+>>>>python model_train.py
   
 Note that the model is saved in directory of ./xgb_model
 
 ## Evaluation
 After training the model, you can make predictions and then yeild the model performance.
 
-  python test.py
+>>>>python test.py
   
 ## Citation and Reference
 This work is published in the following paper in Critical Care Medicine
 
-An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis
+>>>>An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis
