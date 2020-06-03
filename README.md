@@ -43,7 +43,7 @@ This work is published in the following paper which has submitted to Critical Ca
     
 Conference Paper published in 2019 Computing in Cardiology Conference is as follows.
 
-    [Early Prediction of Sepsis Using Multi-Feature Fusion Based XGBoost Learning and Bayesian Optimization](https://www.researchgate.net/publication/338628580_Early_Prediction_of_Sepsis_Using_Multi-Feature_Fusion_Based_XGBoost_Learning_and_Bayesian_Optimization)
+   [Early Prediction of Sepsis Using Multi-Feature Fusion Based XGBoost Learning and Bayesian Optimization](https://www.researchgate.net/publication/338628580_Early_Prediction_of_Sepsis_Using_Multi Feature_Fusion_Based_XGBoost_Learning_and_Bayesian_Optimization)
     
 ## Feadback
 If you have any questions or suggestions on this work, please e-mail meicheng@seu.edu.cn
