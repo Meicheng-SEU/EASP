@@ -38,7 +38,7 @@ def BO_TPE(X_train, y_train, X_val, y_val):
         'reg_lambda': hp.choice('reg_lambda', reg_lambdas),
     }
 
-    best = fmin(fn=objective, space=space, algo=tpe.suggest, max_evals=15)
+    best = fmin(fn=objective, space=space, algo=tpe.suggest, max_evals=20)
 
     best_param = {'max_depth': max_depths[(best['max_depth'])],
                   'learning_rate': learning_rates[(best['learning_rate'])],
