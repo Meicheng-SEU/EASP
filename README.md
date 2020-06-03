@@ -25,7 +25,7 @@ After training the model, you can make predictions and then yield the model perf
 
     python test.py xgb_model
     
-Or you can directly use our trained model for quick verification using the following command
+Or you can directly use our trained model for quick verification using the following command.
   
     python test.py Submit_model
     
@@ -37,11 +37,11 @@ Impacts of features on risk output were quantified by Shapley values to obtain i
     python shap_explain.py Submit_model
 
 ## Citation and Reference
-This work is published in the following paper which has submitted to Critical Care Medicine.
+This work is published in the following paper which has been submitted to *Critical Care Medicine*.
 
     An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis (Under review)
     
-Conference Paper published in 2019 Computing in Cardiology Conference is as follows.
+Conference Paper published in *2019 Computing in Cardiology Conference* is as follows.
 
    [Early Prediction of Sepsis Using Multi-Feature Fusion Based XGBoost Learning and Bayesian Optimization](https://www.researchgate.net/publication/338628580_Early_Prediction_of_Sepsis_Using_Multi-Feature_Fusion_Based_XGBoost_Learning_and_Bayesian_Optimization)
     
