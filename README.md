@@ -1,5 +1,5 @@
 # EASP
-An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis. The highest entry score from SailOcean in the PhysioNet/Computing in Cardiology Challenge 2019.
+An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis. The highest entry score from ***SailOcean*** in the PhysioNet/Computing in Cardiology Challenge 2019.
 
 ## Brief Introduction
 The PhysioNet/Computing in Cardiology Challenge 2019 facilitated the development of automated, open-source algorithms for the early detection of sepsis from clinical data. Details see (https://physionet.org/content/challenge-2019/1.0.0/).
@@ -37,11 +37,11 @@ Impacts of features on risk output were quantified by Shapley values to obtain i
     python shap_explain.py Submit_model
 
 ## Citation and Reference
-This work is published in the following paper which has been submitted to *Critical Care Medicine*.
+This work is going to published in ***Critical Care Medicine***.
 
     An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis (Under review)
     
-Conference Paper published in *2019 Computing in Cardiology Conference* is as follows.
+Conference Paper published in ***2019 Computing in Cardiology Conference*** is as follows.
 
    [Early Prediction of Sepsis Using Multi-Feature Fusion Based XGBoost Learning and Bayesian Optimization](https://www.researchgate.net/publication/338628580_Early_Prediction_of_Sepsis_Using_Multi-Feature_Fusion_Based_XGBoost_Learning_and_Bayesian_Optimization)
     
