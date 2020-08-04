@@ -39,7 +39,7 @@ Impacts of features on risk output were quantified by Shapley values to obtain i
 ## Citation and Reference
 This work is going to published in ***Critical Care Medicine***.
 
-    An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis (Under review)
+    An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis
     
 Conference Paper published in ***2019 Computing in Cardiology Conference*** is as follows.
 
