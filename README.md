@@ -1,5 +1,5 @@
 # EASP
-An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis
+An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis. The highest entry score from SailOcean in the PhysioNet/Computing in Cardiology Challenge 2019.
 
 ## Brief Introduction
 The PhysioNet/Computing in Cardiology Challenge 2019 facilitated the development of automated, open-source algorithms for the early detection of sepsis from clinical data. Details see (https://physionet.org/content/challenge-2019/1.0.0/).
