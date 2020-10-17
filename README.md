@@ -39,8 +39,8 @@ Impacts of features on risk output were quantified by Shapley values to obtain i
 ## Citation and Reference
 This work has been published in ***Critical Care Medicine***.
 
-   [An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis](https://journals.lww.com/ccmjournal/Fulltext/2020/11000/An_Explainable_Artificial_Intelligence_Predictor.37.aspx)
-    
+   [An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis](https://journals.lww.com/ccmjournal/Fulltext/2020/11000/An_Explainable_Artificial_Intelligence_Predictor.37.aspx) 
+     
 Conference Paper published in ***2019 Computing in Cardiology Conference*** is as follows.
 
    [Early Prediction of Sepsis Using Multi-Feature Fusion Based XGBoost Learning and Bayesian Optimization](https://www.researchgate.net/publication/338628580_Early_Prediction_of_Sepsis_Using_Multi-Feature_Fusion_Based_XGBoost_Learning_and_Bayesian_Optimization)
