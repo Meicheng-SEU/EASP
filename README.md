@@ -37,9 +37,10 @@ Impacts of features on risk output were quantified by Shapley values to obtain i
     python shap_explain.py Submit_model
 
 ## Citation and Reference
-This work is going to be published in ***Critical Care Medicine***.
+This work has been published in ***Critical Care Medicine***.
 
-    An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis
+    [An Explainable Artificial Intelligence Predictor for Early Detection of Sepsis]
+    (https://journals.lww.com/ccmjournal/Fulltext/2020/11000/An_Explainable_Artificial_Intelligence_Predictor.37.aspx)
     
 Conference Paper published in ***2019 Computing in Cardiology Conference*** is as follows.
 
